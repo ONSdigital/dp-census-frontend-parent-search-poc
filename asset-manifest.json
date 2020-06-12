@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/dp-census-frontend-parent-search-poc/static/css/main.55141fdd.chunk.css",
+    "main.js": "/dp-census-frontend-parent-search-poc/static/js/main.dd073003.chunk.js",
+    "main.js.map": "/dp-census-frontend-parent-search-poc/static/js/main.dd073003.chunk.js.map",
+    "runtime-main.js": "/dp-census-frontend-parent-search-poc/static/js/runtime-main.ac0951d7.js",
+    "runtime-main.js.map": "/dp-census-frontend-parent-search-poc/static/js/runtime-main.ac0951d7.js.map",
+    "static/js/2.a3a57a73.chunk.js": "/dp-census-frontend-parent-search-poc/static/js/2.a3a57a73.chunk.js",
+    "static/js/2.a3a57a73.chunk.js.map": "/dp-census-frontend-parent-search-poc/static/js/2.a3a57a73.chunk.js.map",
+    "index.html": "/dp-census-frontend-parent-search-poc/index.html",
+    "precache-manifest.e217ee740947854af0e1033fde60ab56.js": "/dp-census-frontend-parent-search-poc/precache-manifest.e217ee740947854af0e1033fde60ab56.js",
+    "service-worker.js": "/dp-census-frontend-parent-search-poc/service-worker.js",
+    "static/css/main.55141fdd.chunk.css.map": "/dp-census-frontend-parent-search-poc/static/css/main.55141fdd.chunk.css.map",
+    "static/js/2.a3a57a73.chunk.js.LICENSE.txt": "/dp-census-frontend-parent-search-poc/static/js/2.a3a57a73.chunk.js.LICENSE.txt",
+    "static/media/Census2021_whiteback.png": "/dp-census-frontend-parent-search-poc/static/media/Census2021_whiteback.3edebd2f.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ac0951d7.js",
+    "static/js/2.a3a57a73.chunk.js",
+    "static/css/main.55141fdd.chunk.css",
+    "static/js/main.dd073003.chunk.js"
+  ]
+}
