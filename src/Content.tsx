@@ -1,5 +1,6 @@
 import React, {FormEvent} from 'react';
-import {Resulta, ResultProps, searchResult} from "./Result";
+import {Result, ResultProps, searchResult} from "./Result";
+import {MapItem} from "./MapItem";
 
 import './App.css';
 
@@ -86,7 +87,8 @@ export class Content extends React.Component<ContentProps, {}> {
                     <span className="icon icon-search--light"></span>
                 </button>
             </form>
-            <Resulta results={this.state.results}/>
+            <MapItem/>
+            <Result results={this.state.results}/>
         </div>
     }
 }

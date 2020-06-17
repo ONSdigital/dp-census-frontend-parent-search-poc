@@ -10,7 +10,7 @@ export interface searchResult {
 }
 
 
-export class Resulta extends React.Component<ResultProps, {}> {
+export class Result extends React.Component<ResultProps, {}> {
 
     constructor(props: ResultProps) {
         super(props);

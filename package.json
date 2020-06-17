@@ -39,6 +39,7 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^3.0.0"
+    "gh-pages": "^3.0.0",
+    "react-openlayers": "^0.3.0"
   }
 }
