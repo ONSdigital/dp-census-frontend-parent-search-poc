@@ -45,7 +45,9 @@ import {
     Projection,
     get as getProjection
 } from 'ol/proj'
-import {defaults as defaultInteractions, DragRotateAndZoom} from 'ol/interaction';
+import {defaults as defaultInteractions, DragRotateAndZoom, DragPan} from 'ol/interaction';
+import Select from 'ol/interaction/Select';
+
 
 // End Openlayers imports
 import React from "react";
@@ -57,44 +59,59 @@ export class OLMapFragment extends React.Component<OLMapFragmentProps, {}> {
     state = {
         height: "50%",
     };
+
+    private select = new Select(); // ref to currently selected interaction
+    private map;
+
     constructor(props: OLMapFragmentProps) {
         super(props);
-        this.updateDimensions = this.updateDimensions.bind(this)
+        this.updateDimensions = this.updateDimensions.bind(this);
+        this.addInteractionToMap = this.addInteractionToMap.bind(this)
     }
 
     updateDimensions() {
-        const h = window.innerWidth >= 992 ? window.innerHeight : 400
+        const h = window.innerWidth >= 992 ? window.innerHeight : 400;
         this.setState({height: h})
     }
 
+    addInteractionToMap() {
+        console.log("this.map");
+        console.log(this.map);
+        this.map.addInteraction(this.select);
+        this.select.on('select', function (e) {
+            console.log(e.target.getFeatures().getLength());
+            console.log(e.selected);
+            console.log(e);
+        });
+    }
+
     componentWillMount() {
-        window.addEventListener('resize', this.updateDimensions)
-        this.updateDimensions()
+        window.addEventListener('resize', this.updateDimensions);
+        this.updateDimensions();
     }
 
     componentDidMount() {
 
         // Create an Openlayer Map instance with two tile layers
-        const map = new Map({
+         this.map = new Map({
             //  Display the map in the div with the id of map
             target: 'map',
-            interactions: defaultInteractions().extend([
-                new DragRotateAndZoom()
+            interactions: defaultInteractions({onFocusOnly:true}).extend([
+                //new DragRotateAndZoom(),
             ]),
             layers: [
-                new TileLayer({
-                    source: new XYZSource({
-                        url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                        projection: 'EPSG:3857'
-                    })
-                }),
+                // new TileLayer({
+                //     source: new XYZSource({
+                //         url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                //         projection: 'EPSG:3857'
+                //     })
+                // }),
                 new TileLayer({
                     source: new TileWMSSource({
                         url: 'https://ahocevar.com/geoserver/wms',
-                        params: {
-                            layers: 'topp:states',
-                            'TILED': true,
-                        },
+                        params: {'LAYERS': 'ne:ne', 'TILED': true},
+                        serverType: 'geoserver',
+                        crossOrigin: 'anonymous',
                         projection: 'EPSG:4326'
                     }),
                     name: 'USA'
@@ -110,10 +127,12 @@ export class OLMapFragment extends React.Component<OLMapFragmentProps, {}> {
             // Render the tile layers in a map view with a Mercator projection
             view: new View({
                 projection: 'EPSG:3857',
-                center: [0, 0],
-                zoom: 4
+                center: [-406052.603508, 7509144.994850],
+                zoom: 6
             })
-        })
+        });
+        this.addInteractionToMap();
+
     }
 
     componentWillUnmount() {
@@ -127,12 +146,12 @@ export class OLMapFragment extends React.Component<OLMapFragmentProps, {}> {
             backgroundColor: '#cccccc',
         };
         return (
-            <Grid container>
-                <Grid item xs={12}>
+            //<Grid container>
+             //   <Grid item xs={12}>
                     <div id='map' style={style}>
                     </div>
-                </Grid>
-            </Grid>
+               // </Grid>
+        //    </Grid>
         )
     }
 }
