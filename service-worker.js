@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/dp-census-frontend-parent-search-poc/precache-manifest.46de099ee7783c89dd524fd801bfe7ca.js"
+  "/dp-census-frontend-parent-search-poc/precache-manifest.2e7fcbd9addad73a721c081603b7a4d6.js"
 );
 
 self.addEventListener('message', (event) => {
